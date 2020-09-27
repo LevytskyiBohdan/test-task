@@ -1,0 +1,22 @@
+<form [formGroup]="form" (keydown.enter)="onSave()">
+    <p><small>Press enter to save</small></p>
+    <p><small>Press on task to mark as complited</small></p>
+    <input type="text" placeholder="Whot should to do?..." formControlName="title"/>
+</form>
+
+<ng-container *ngIf="tasks$ | async as tasks; else loading">
+    <ul>
+        <li *ngFor="let task of tasks">
+            <span [class.line-through]="task.completed" (click)="onComplit(task.id)">{{task.title}}</span>
+            <span [style.color]="'yellow'" (click)="onEdit(task.id)">EDIT</span>
+            <span [style.color]="'red'" (click)="onDelete(task.id)">DELETE</span>
+
+        </li>
+    </ul>
+</ng-container>
+<ng-template #loading>
+    <ng-container *ngIf="loadError; else loading"> Failed to load data</ng-container>
+    <ng-template #loading>
+        <p>Loading...</p>
+    </ng-template>
+</ng-template>

@@ -1,0 +1,13 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+    <input type="text" placeholder="name..." formControlName="name"/>
+    <input type="text" placeholder="username..." formControlName="username"/>
+    <input type="text" placeholder="email..." formControlName="email"/>
+    <input type="text" placeholder="phone..." formControlName="phone"/>
+    <div formGroupName="address">
+        <input type="text" placeholder="street..." formControlName="street"/>
+        <input type="text" placeholder="suite..." formControlName="suite"/>
+        <input type="text" placeholder="city..." formControlName="city"/>
+        <input type="text" placeholder="zipcode..." formControlName="zipcode"/>
+    </div>
+    <button type="submit">Submit</button>
+</form>

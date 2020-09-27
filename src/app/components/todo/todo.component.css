@@ -1,0 +1,11 @@
+li {
+    display: block;
+}
+
+span {
+    display: inline-block;
+    padding: 5px;
+}
+.line-through {
+    text-decoration: line-through;
+}
